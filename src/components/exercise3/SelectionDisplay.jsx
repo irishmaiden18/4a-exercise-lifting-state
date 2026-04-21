@@ -1,8 +1,8 @@
 
-export default function SelectionDisplay() {
+export default function SelectionDisplay({selected}) {
   return (
     <div>
-      <p>Selected option: None</p>
+      <p>Selected option: {selected}</p>
     </div>
   );
 }
