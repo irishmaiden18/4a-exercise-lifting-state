@@ -15,7 +15,20 @@ function App() {
   //Exercise 1 code
   const [bill, setBill] = useState(0)
   const [tip, setTip] = useState(0)
+
   //Exercise 2 code
+  const [total, setTotal] = useState(0)
+  const [currency, setCurrency] = useState("e")
+
+  const handleEuros = (value) => {
+    setTotal(value)
+    setCurrency("e")
+  }
+
+  const handleDollars = (value) => {
+    setTotal(value)
+    setCurrency("d")
+  }
 
   return (
     <>
@@ -30,8 +43,8 @@ function App() {
       {/* Exercise 2. Typing in one input does not update the other, because state is duplicated in both children.  Make it so that one one input updates, so does the other */}
       <div>
         <h1>Currency Converter</h1>
-        <USDInput />
-        <EURInput />
+        <USDInput total={total} handleCurrencyChange={handleDollars} currency={currency}/>
+        <EURInput total={total} handleCurrencyChange={handleEuros} currency={currency}/>
       </div>
 
       {/* Exercise 3 Each OptionRadio tracks its own selection. SelectionDisplay cannot show the selected option. Clicking buttons does not update the display correctly.  Fix it so the selected option is displayed properly.  Write your code in the QuestionForm component */}
