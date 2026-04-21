@@ -10,8 +10,11 @@ import EURInput from "./components/exercise2/EURInput";
 import QuestionForm from "./components/exercise3/QuestionForm";
 
 function App() {
+  // .toFixed(2) - for 2 decimal points (converts it to a string)  
+  
   //Exercise 1 code
-
+  const [bill, setBill] = useState(0)
+  const [tip, setTip] = useState(0)
   //Exercise 2 code
 
   return (
@@ -19,9 +22,9 @@ function App() {
       {/* Exercise 1. BillInput and TipPercentageInput manage their own state. TotalDisplay cannot update correctly. Fix the code so that it can.*/}
       <div>
         <h1>Tip Calculator</h1>
-        <BillInput />
-        <TipPercentageInput />
-        <TotalDisplay />
+        <BillInput bill={bill} setBill={setBill}/>
+        <TipPercentageInput tip={tip} setTip={setTip}/>
+        <TotalDisplay bill={bill} tip={tip}/>
       </div>
 
       {/* Exercise 2. Typing in one input does not update the other, because state is duplicated in both children.  Make it so that one one input updates, so does the other */}
